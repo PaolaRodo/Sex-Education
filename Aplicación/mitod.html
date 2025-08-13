@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Mitos y Verdades</title>
+    <style>
+    * {margin: auto; text-align: center;}
+    h1 {font-size: 3rem}
+    p {font-size: 1rem; margin: 1rem}
+    body {background: white;}
+    #opciones {margin-bottom: 3rem}
+    #correcta1 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta1 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien1 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal1 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #correcta2 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta2 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien2 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal2 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #correcta3 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta3 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien3 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal3 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #correcta4 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta4 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien4 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal4 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #correcta5 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta5 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien5 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal5 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #correcta6 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta6 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien6 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal6 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #correcta7{display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta7 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien7 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal7 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #correcta8 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta8 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien8 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal8 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #correcta9 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta9 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien9 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal9 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #correcta10 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta10 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien10 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal10 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #titulo {background: #FA897B; display: flex; justify-content: space-around;}
+    #boton {width: 10%;}
+    #mito {width: 75%; margin: 1rem}
+    #equis {background: #FA897B; border: #FA897B;}
+    #equis img {width: 1rem}
+    #button {background: white; border: white;}
+    #button img {width: 10rem; height: 10rem;}
+    #pregunta2 {display: none;}
+    #pregunta3 {display: none;}
+    #pregunta4 {display: none;}
+    #pregunta5 {display: none;}
+    #pregunta6 {display: none;}
+    #pregunta7 {display: none;}
+    #pregunta8 {display: none;}
+    #pregunta9 {display: none;}
+    #pregunta10 {display: none;}
+    #respuesta {background: #FA897B; width: 90%; height: 90%; text-align: center; border-radius: 20px; margin-top: 1rem}
+    #respuesta img {width: 5rem; height: 5rem; margin-top: 2rem}
+    #descripción p {font-size: 1rem}
+    #conti {background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #frase {margin: 2rem}
+    #final {display: none; background: #FA897B; height: 100%; width: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #final img {width: 70%; height: 70%}
+    #puntuacion {background: #FA897B; border: #FA897B; font-size: 2rem; width: 100%}
+    #dejar {background: rgba(0,0,0,0.4); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #go {background: black; color: white; width: 90%; height: 40%; margin-top: 10rem; border-radius: 20px;}
+    a {text-decoration: none; color: white;}
+    #ultimo {background: #86E3CE; border:#86E3CE; color: white; border-radius: 20px; font-size: 2rem; margin: 0.5rem}
+    </style>
+    <script>
+    var puntaje =0;
+    function verdad1(){
+      document.getElementById("incorrecta1").style.display = "inline-block"
+      document.getElementById("correcta1").style.display = "none"
+    }
+    function mito1(){
+      document.getElementById("correcta1").style.display = "inline-block"
+      document.getElementById("incorrecta1").style.display = "none"
+    }
+    function c1(){
+      puntaje = puntaje + 1
+      document.getElementById("bien1").style.display = "inline-block"
+    }
+    function in1(){
+      document.getElementById("mal1").style.display = "inline-block"
+    }
+    function continuar1(){
+      document.getElementById("pregunta2").style.display = "inline-block"
+      document.getElementById("pregunta1").style.display = "none"
+      document.getElementById("bien1").style.display = "none"
+      document.getElementById("mal1").style.display = "none"
+    }
+    function verdad2(){
+      document.getElementById("correcta2").style.display = "inline-block"
+      document.getElementById("incorrecta2").style.display = "none"
+    }
+    function mito2(){
+      document.getElementById("incorrecta2").style.display = "inline-block"
+      document.getElementById("correcta2").style.display = "none"
+    }
+    function c2(){
+      puntaje = puntaje + 1
+      document.getElementById("bien2").style.display = "inline-block"
+    }
+    function in2(){
+      document.getElementById("mal2").style.display = "inline-block"
+    }
+    function continuar2(){
+      document.getElementById("pregunta3").style.display = "inline-block"
+      document.getElementById("pregunta2").style.display = "none"
+      document.getElementById("bien2").style.display = "none"
+      document.getElementById("mal2").style.display = "none"
+    }
+    function verdad3(){
+      document.getElementById("incorrecta3").style.display = "inline-block"
+      document.getElementById("correcta3").style.display = "none"
+    }
+    function mito3(){
+      document.getElementById("correcta3").style.display = "inline-block"
+      document.getElementById("incorrecta3").style.display = "none"
+    }
+    function c3(){
+      puntaje = puntaje + 1
+      document.getElementById("bien3").style.display = "inline-block"
+    }
+    function in3(){
+      document.getElementById("mal3").style.display = "inline-block"
+    }
+    function continuar3(){
+      document.getElementById("pregunta4").style.display = "inline-block"
+      document.getElementById("pregunta3").style.display = "none"
+      document.getElementById("bien3").style.display = "none"
+      document.getElementById("mal3").style.display = "none"
+    }
+    function verdad4(){
+      document.getElementById("incorrecta4").style.display = "inline-block"
+      document.getElementById("correcta4").style.display = "none"
+    }
+    function mito4(){
+      document.getElementById("correcta4").style.display = "inline-block"
+      document.getElementById("incorrecta4").style.display = "none"
+    }
+    function c4(){
+      puntaje = puntaje + 1
+      document.getElementById("bien4").style.display = "inline-block"
+    }
+    function in4(){
+      document.getElementById("mal4").style.display = "inline-block"
+    }
+    function continuar4(){
+      document.getElementById("pregunta5").style.display = "inline-block"
+      document.getElementById("pregunta4").style.display = "none"
+      document.getElementById("bien4").style.display = "none"
+      document.getElementById("mal4").style.display = "none"
+    }
+    function verdad5(){
+      document.getElementById("incorrecta5").style.display = "inline-block"
+      document.getElementById("correcta5").style.display = "none"
+    }
+    function mito5(){
+      document.getElementById("correcta5").style.display = "inline-block"
+      document.getElementById("incorrecta5").style.display = "none"
+    }
+    function c5(){
+      puntaje = puntaje + 1
+      document.getElementById("bien5").style.display = "inline-block"
+    }
+    function in5(){
+      document.getElementById("mal5").style.display = "inline-block"
+    }
+    function continuar5(){
+      document.getElementById("pregunta6").style.display = "inline-block"
+      document.getElementById("pregunta5").style.display = "none"
+      document.getElementById("bien5").style.display = "none"
+      document.getElementById("mal5").style.display = "none"
+    }
+    function verdad6(){
+      document.getElementById("correcta6").style.display = "inline-block"
+      document.getElementById("incorrecta6").style.display = "none"
+    }
+    function mito6(){
+      document.getElementById("incorrecta6").style.display = "inline-block"
+      document.getElementById("correcta6").style.display = "none"
+    }
+    function c6(){
+      puntaje = puntaje + 1
+      document.getElementById("bien6").style.display = "inline-block"
+    }
+    function in6(){
+      document.getElementById("mal6").style.display = "inline-block"
+    }
+    function continuar6(){
+      document.getElementById("pregunta7").style.display = "inline-block"
+      document.getElementById("pregunta6").style.display = "none"
+      document.getElementById("bien6").style.display = "none"
+      document.getElementById("mal6").style.display = "none"
+    }
+    function verdad7(){
+      document.getElementById("incorrecta7").style.display = "inline-block"
+      document.getElementById("correcta7").style.display = "none"
+    }
+    function mito7(){
+      document.getElementById("correcta7").style.display = "inline-block"
+      document.getElementById("incorrecta7").style.display = "none"
+    }
+    function c7(){
+      puntaje = puntaje + 1
+      document.getElementById("bien7").style.display = "inline-block"
+    }
+    function in7(){
+      document.getElementById("mal7").style.display = "inline-block"
+    }
+    function continuar7(){
+      document.getElementById("pregunta8").style.display = "inline-block"
+      document.getElementById("pregunta7").style.display = "none"
+      document.getElementById("bien7").style.display = "none"
+      document.getElementById("mal7").style.display = "none"
+    }
+    function verdad8(){
+      document.getElementById("correcta8").style.display = "inline-block"
+      document.getElementById("incorrecta8").style.display = "none"
+    }
+    function mito8(){
+      document.getElementById("incorrecta8").style.display = "inline-block"
+      document.getElementById("correcta8").style.display = "none"
+    }
+    function c8(){
+      puntaje = puntaje + 1
+      document.getElementById("bien8").style.display = "inline-block"
+    }
+    function in8(){
+      document.getElementById("mal8").style.display = "inline-block"
+    }
+    function continuar8(){
+      document.getElementById("pregunta9").style.display = "inline-block"
+      document.getElementById("pregunta8").style.display = "none"
+      document.getElementById("bien8").style.display = "none"
+      document.getElementById("mal8").style.display = "none"
+    }
+    function verdad9(){
+      document.getElementById("incorrecta9").style.display = "inline-block"
+      document.getElementById("correcta9").style.display = "none"
+    }
+    function mito9(){
+      document.getElementById("correcta9").style.display = "inline-block"
+      document.getElementById("incorrecta9").style.display = "none"
+    }
+    function c9(){
+      puntaje = puntaje + 1
+      document.getElementById("bien9").style.display = "inline-block"
+    }
+    function in9(){
+      document.getElementById("mal9").style.display = "inline-block"
+    }
+    function continuar9(){
+      document.getElementById("pregunta10").style.display = "inline-block"
+      document.getElementById("pregunta9").style.display = "none"
+      document.getElementById("bien9").style.display = "none"
+      document.getElementById("mal9").style.display = "none"
+    }
+    function verdad10(){
+      document.getElementById("incorrecta10").style.display = "inline-block"
+      document.getElementById("correcta10").style.display = "none"
+    }
+    function mito10(){
+      document.getElementById("correcta10").style.display = "inline-block"
+      document.getElementById("incorrecta10").style.display = "none"
+    }
+    function c10(){
+      puntaje = puntaje + 1
+      document.getElementById("bien10").style.display = "inline-block"
+    }
+    function in10(){
+      document.getElementById("mal10").style.display = "inline-block"
+    }
+    function continuar10(){
+      document.getElementById("final").style.display = "inline-block"
+      document.getElementById("pregunta10").style.display = "none"
+      document.getElementById("bien10").style.display = "none"
+      document.getElementById("mal10").style.display = "none"
+      document.getElementById("titulo").style.display = "none"
+      document.getElementById("puntuacion").value = puntaje
+    }
+    function salir() {
+      document.getElementById("dejar").style.display = "inline-block"
+    }
+    function seguir() {
+      document.getElementById("dejar").style.display = "none"
+    }
+    </script>
+  </head>
+  <body>
+ <div id="titulo">
+   <div id="mito"><h1>Mitos y Verdades</h1></div>
+   <div id="boton"><button id="equis" onclick="salir()"><img src="imagenes/equis.png"></button></div>
+</div>
+<div id="dejar">
+  <div id="go">
+    <div id="text"><p>¿Estás seguro de que quieres salir? NO se guardará tu progreso</p></div>
+  <button id="ultimo"><a href="index.html">Salir</a></button>
+  <button onclick="seguir()" id="ultimo">Continuar</button>
+</div>
+</div>
+<div id=pregunta1>
+  <p>Las ETS y embarazos se evitan igual</p>
+  <div id="opciones">
+  <button onclick="verdad1()" id="button"><img src="imagenes/verdad.png"></button>
+  <button onclick="mito1()" id="button"><img src="imagenes/mito.png"></button>
+</div>
+  <button id="correcta1" onclick="c1()">Comprobar</button>
+  <button id="incorrecta1" onclick="in1()">Comprobar</button>
+</div>
+<div id="bien1">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar1()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal1">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>Hay métodos para protegerse de los embarazos no deseados, como utilizar anticonceptivos hormonales o la marcha atrás que no te protegen de ninguna forma de contraer enfermedades de transmisión sexual.</p></div>
+    <button onclick="continuar1()" id="conti">Continuar</button>
+  </div>
+  </div>
+</div>
+</div>
+<div id=pregunta2>
+  <p>Las duchas vaginales hacen más mal que bien </p>
+  <div id="opciones">
+  <button onclick="verdad2()" id="button"><img src="imagenes/verdad.png"></button>
+  <button onclick="mito2()" id="button"><img src="imagenes/mito.png"></button>
+</div>
+  <button id="correcta2" onclick="c2()">Comprobar</button>
+  <button id="incorrecta2" onclick="in2()">Comprobar</button>
+</div>
+<div id="bien2">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar2()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal2">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>De hecho, utilizar duchas vaginales no es una buena idea: el interior de la vagina está poblado por bacterias beneficiosas, la flora vaginal, que mantienen a raya a otros patógenos. Una ducha vaginal se lo puede llevar todo por delante y terminar causando más daño que beneficio.</p></div>
+    <button onclick="continuar2()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id=pregunta3>
+  <p>El sexo oral no conlleva riesgo de ETS</p>
+  <div id="opciones">
+  <button onclick="verdad3()" id="button"><img src="imagenes/verdad.png"></button>
+  <button onclick="mito3()" id="button"><img src="imagenes/mito.png"></button>
+</div>
+  <button id="correcta3" onclick="c3()">Comprobar</button>
+  <button id="incorrecta3" onclick="in3()">Comprobar</button>
+</div>
+<div id="bien3">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar3()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal3">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>Aunque el riesgo es mejor que en el sexo vaginal o anal, practicar sexo oral sin preservativo también supone un riesgo de contagio de enfermedades como la gonorrea, la clamidia, el herpes, o la sífilis si una de las dos personas está infectada.</p></div>
+    <button onclick="continuar3()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id=pregunta4>
+  <p>Las duchas vaginales previenen el embarazo</p>
+  <div id="opciones">
+  <button onclick="verdad4()" id="button"><img src="imagenes/verdad.png"></button>
+  <button onclick="mito4()" id="button"><img src="imagenes/mito.png"></button>
+</div>
+  <button id="correcta4" onclick="c4()">Comprobar</button>
+  <button id="incorrecta4" onclick="in4()">Comprobar</button>
+</div>
+<div id="bien4">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar4()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal4">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>Las duchas vaginales en algunos casos se utilizan con la idea de que al expulsar el semen tras las relaciones, evitan los embarazos, pero no es cierto: los espermatozoides llegan al interior del útero y suben por las trompas de Falopio mucho antes de que dé tiempo a usar uno de estos productos.</p></div>
+    <button onclick="continuar4()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id=pregunta5>
+  <p>Tomar Coca-Cola con Alka Seltzer antes de la relación sexual evita el embarazo</p>
+  <div id="opciones">
+  <button onclick="verdad5()" id="button"><img src="imagenes/verdad.png"></button>
+  <button onclick="mito5()" id="button"><img src="imagenes/mito.png"></button>
+</div>
+  <button id="correcta5" onclick="c5()">Comprobar</button>
+  <button id="incorrecta5" onclick="in5()">Comprobar</button>
+</div>
+<div id="bien5">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar5()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal5">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>No. Ninguna de estas sustancias tiene efectos anticonceptivos para evitar un embarazo. Lo que realmente funciona es el uso de métodos anticonceptivos o, directamente, la abstención.</p></div>
+    <button onclick="continuar5()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id=pregunta6>
+  <p>Tener relaciones sexuales mientras se está menstruando evita el embarazo</p>
+  <div id="opciones">
+  <button onclick="verdad6()" id="button"><img src="imagenes/verdad.png"></button>
+  <button onclick="mito6()" id="button"><img src="imagenes/mito.png"></button>
+</div>
+  <button id="correcta6" onclick="c6()">Comprobar</button>
+  <button id="incorrecta6" onclick="in6()">Comprobar</button>
+</div>
+<div id="bien6">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar6()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal6">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>La menstruación es un flujo acompañado de sangrado que se expulsa a través de la vagina cuando el óvulo no es fecundado por el espermatozoide</p></div>
+    <button onclick="continuar6()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id=pregunta7>
+  <p>Todas las infecciones de transmisión sexual se manifiestan con síntomas y por eso no es necesario hacerse exámenes de laboratorio preventivos</p>
+  <div id="opciones">
+  <button onclick="verdad7()" id="button"><img src="imagenes/verdad.png"></button>
+  <button onclick="mito7()" id="button"><img src="imagenes/mito.png"></button>
+</div>
+  <button id="correcta7" onclick="c7()">Comprobar</button>
+  <button id="incorrecta7" onclick="in7()">Comprobar</button>
+</div>
+<div id="bien7">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar7()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal7">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>Algunas ITS no siempre se manifiestan (como el herpes genital, por ejemplo) o a veces los síntomas tardan un buen tiempo en aparecer. Por eso, aunque crea que está sano, debe hacerse controles de manera periódica. El diagnóstico temprano es muy importante para que controlar las ITS, especialmente en el caso del VIH</p></div>
+    <button onclick="continuar7()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id=pregunta8>
+  <p>La educación sexual ayuda a tomar decisiones informadas</p>
+  <div id="opciones">
+  <button onclick="verdad8()" id="button"><img src="imagenes/verdad.png"></button>
+  <button onclick="mito8()" id="button"><img src="imagenes/mito.png"></button>
+</div>
+  <button id="correcta8" onclick="c8()">Comprobar</button>
+  <button id="incorrecta8" onclick="in8()">Comprobar</button>
+</div>
+<div id="bien8">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar8()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal8">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>La educación sexual en la adolescencia contribuye a tomar decisiones informadas sobre cuándo iniciar las relaciones sexuales, cómo protegerse de infecciones y cómo evitar un embarazo</p></div>
+    <button onclick="continuar8()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id=pregunta9>
+  <p>No se pueden tener varias ETS a la vez</p>
+  <div id="opciones">
+  <button onclick="verdad9()" id="button"><img src="imagenes/verdad.png"></button>
+  <button onclick="mito9()" id="button"><img src="imagenes/mito.png"></button>
+</div>
+  <button id="correcta9" onclick="c9()">Comprobar</button>
+  <button id="incorrecta9" onclick="in9()">Comprobar</button>
+</div>
+<div id="bien9">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar9()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal9">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>¡Al contrario! Puedes llegar a tener dos ETS al mismo tiempo, pues al debilitarse tu sistema inmune por la primera, tu cuerpo podrá bajar la guardia ante la aparición de una nueva infección.</p></div>
+    <button onclick="continuar9()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id=pregunta10>
+  <p>El preservativo logra evitar el contagio de cualquier tipo de ETS</p>
+  <div id="opciones">
+  <button onclick="verdad10()" id="button"><img src="imagenes/verdad.png"></button>
+  <button onclick="mito10()" id="button"><img src="imagenes/mito.png"></button>
+</div>
+  <button id="correcta10" onclick="c10()">Comprobar</button>
+  <button id="incorrecta10" onclick="in10()">Comprobar</button>
+</div>
+<div id="bien10">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar10()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal10">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>A pesar de que el preservativo nos brinda protección frente al contagio de este tipo de enfermedades, debemos tener en cuenta que las ETS no solo se contraen durante el coito, sino que también se pueden contraer mediante el sexo anal y oral, además de por el contacto de la piel de los genitales</p></div>
+    <button onclick="continuar10()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="final">
+  <div>
+<h1>Mitos y Verdades</h1>
+<p>¡Juego terminado!</p></br>
+<img src="imagenes/mitos.jpg">
+<p>Tu puntuación fue de:</p>
+  <input id="puntuacion" readonly></input>
+</div>
+<button id="ultimo"><a href="index.html">Volver a inicio</a></button>
+</div>
+  </body>
+</html>

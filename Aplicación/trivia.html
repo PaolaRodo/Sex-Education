@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Trivia</title>
+    <style>
+    * {margin: auto; text-align: center;}
+    h1 {font-size: 3rem}
+    p {font-size: 1rem; margin: 1rem}
+    body {background: white}
+    #opciones {margin-bottom: 3rem}
+    #correcta1 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta1 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien1 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal1 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #correcta2 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta2 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien2 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal2 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #correcta3 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta3 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien3 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal3 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #correcta4 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta4 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien4 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal4 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #correcta5 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta5 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien5 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal5 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #correcta6 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta6 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien6 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal6 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #correcta7{display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta7 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien7 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal7 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #correcta8 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta8 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien8 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal8 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #correcta9 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta9 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien9 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal9 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #correcta10 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #incorrecta10 {display: none; background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #bien10 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #mal10 {background: rgba(0,0,0,0.5); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #titulo {background: #FFDD94; display: flex; justify-content: space-around;}
+    #boton {width: 10%;}
+    #trivia {width: 75%; margin: 1rem}
+    #equis {background: #FFDD94; border: #FFDD94;}
+    #equis img {width: 1rem}
+    #button {background: #86E3CE; border: #86E3CE; color: white; font-size: 1rem; border-radius: 20px; width: 80%; margin-top: 1rem}
+    #pregunta2 {display: none;}
+    #pregunta3 {display: none;}
+    #pregunta4 {display: none;}
+    #pregunta5 {display: none;}
+    #pregunta6 {display: none;}
+    #pregunta7 {display: none;}
+    #pregunta8 {display: none;}
+    #pregunta9 {display: none;}
+    #pregunta10 {display: none;}
+    #respuesta {background: #FFDD94; width: 90%; height: 90%; text-align: center; border-radius: 20px; margin-top: 1rem}
+    #respuesta img {width: 5rem; height: 5rem; margin-top: 2rem}
+    #descripción p {font-size: 1rem}
+    #conti {background: #CCABD8; color: white; border: #CCABD8; font-size: 2rem; border-radius: 20px;}
+    #frase {margin: 2rem}
+    #final {display: none; background: #FFDD94; width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #puntuacion {background: #FFDD94; border: #FFDD94; font-size: 5rem; width: 100%}
+    #dejar {background: rgba(0,0,0,0.4); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #go {background: black; color: white; width: 90%; height: 30%; margin-top: 10rem; border-radius: 20px;}
+    a {text-decoration: none; color: white;}
+    #ultimo {background: #86E3CE; border: #86E3CE;color: white; border-radius: 20px; font-size: 2rem; margin: 0.5rem;}
+    #final img {width: 80%; height: 80%}
+    </style>
+    <script>
+    var puntaje =0;
+    function buena1(){
+      document.getElementById("correcta1").style.display = "inline-block"
+      document.getElementById("incorrecta1").style.display = "none"
+    }
+    function mala1(){
+      document.getElementById("incorrecta1").style.display = "inline-block"
+      document.getElementById("correcta1").style.display = "none"
+    }
+    function c1(){
+      puntaje = puntaje + 1
+      document.getElementById("bien1").style.display = "inline-block"
+    }
+    function in1(){
+      document.getElementById("mal1").style.display = "inline-block"
+    }
+    function continuar1(){
+      document.getElementById("pregunta2").style.display = "inline-block"
+      document.getElementById("pregunta1").style.display = "none"
+      document.getElementById("bien1").style.display = "none"
+      document.getElementById("mal1").style.display = "none"
+    }
+    function buena2(){
+      document.getElementById("correcta2").style.display = "inline-block"
+      document.getElementById("incorrecta2").style.display = "none"
+    }
+    function mala2(){
+      document.getElementById("incorrecta2").style.display = "inline-block"
+      document.getElementById("correcta2").style.display = "none"
+    }
+    function c2(){
+      puntaje = puntaje + 1
+      document.getElementById("bien2").style.display = "inline-block"
+    }
+    function in2(){
+      document.getElementById("mal2").style.display = "inline-block"
+    }
+    function continuar2(){
+      document.getElementById("pregunta3").style.display = "inline-block"
+      document.getElementById("pregunta2").style.display = "none"
+      document.getElementById("bien2").style.display = "none"
+      document.getElementById("mal2").style.display = "none"
+    }
+    function mala3(){
+      document.getElementById("incorrecta3").style.display = "inline-block"
+      document.getElementById("correcta3").style.display = "none"
+    }
+    function buena3(){
+      document.getElementById("correcta3").style.display = "inline-block"
+      document.getElementById("incorrecta3").style.display = "none"
+    }
+    function c3(){
+      puntaje = puntaje + 1
+      document.getElementById("bien3").style.display = "inline-block"
+    }
+    function in3(){
+      document.getElementById("mal3").style.display = "inline-block"
+    }
+    function continuar3(){
+      document.getElementById("pregunta4").style.display = "inline-block"
+      document.getElementById("pregunta3").style.display = "none"
+      document.getElementById("bien3").style.display = "none"
+      document.getElementById("mal3").style.display = "none"
+    }
+    function mala4(){
+      document.getElementById("incorrecta4").style.display = "inline-block"
+      document.getElementById("correcta4").style.display = "none"
+    }
+    function buena4(){
+      document.getElementById("correcta4").style.display = "inline-block"
+      document.getElementById("incorrecta4").style.display = "none"
+    }
+    function c4(){
+      puntaje = puntaje + 1
+      document.getElementById("bien4").style.display = "inline-block"
+    }
+    function in4(){
+      document.getElementById("mal4").style.display = "inline-block"
+    }
+    function continuar4(){
+      document.getElementById("pregunta5").style.display = "inline-block"
+      document.getElementById("pregunta4").style.display = "none"
+      document.getElementById("bien4").style.display = "none"
+      document.getElementById("mal4").style.display = "none"
+    }
+    function mala5(){
+      document.getElementById("incorrecta5").style.display = "inline-block"
+      document.getElementById("correcta5").style.display = "none"
+    }
+    function buena5(){
+      document.getElementById("correcta5").style.display = "inline-block"
+      document.getElementById("incorrecta5").style.display = "none"
+    }
+    function c5(){
+      puntaje = puntaje + 1
+      document.getElementById("bien5").style.display = "inline-block"
+    }
+    function in5(){
+      document.getElementById("mal5").style.display = "inline-block"
+    }
+    function continuar5(){
+      document.getElementById("pregunta6").style.display = "inline-block"
+      document.getElementById("pregunta5").style.display = "none"
+      document.getElementById("bien5").style.display = "none"
+      document.getElementById("mal5").style.display = "none"
+    }
+    function buena6(){
+      document.getElementById("correcta6").style.display = "inline-block"
+      document.getElementById("incorrecta6").style.display = "none"
+    }
+    function mala6(){
+      document.getElementById("incorrecta6").style.display = "inline-block"
+      document.getElementById("correcta6").style.display = "none"
+    }
+    function c6(){
+      puntaje = puntaje + 1
+      document.getElementById("bien6").style.display = "inline-block"
+    }
+    function in6(){
+      document.getElementById("mal6").style.display = "inline-block"
+    }
+    function continuar6(){
+      document.getElementById("pregunta7").style.display = "inline-block"
+      document.getElementById("pregunta6").style.display = "none"
+      document.getElementById("bien6").style.display = "none"
+      document.getElementById("mal6").style.display = "none"
+    }
+    function mala7(){
+      document.getElementById("incorrecta7").style.display = "inline-block"
+      document.getElementById("correcta7").style.display = "none"
+    }
+    function buena7(){
+      document.getElementById("correcta7").style.display = "inline-block"
+      document.getElementById("incorrecta7").style.display = "none"
+    }
+    function c7(){
+      puntaje = puntaje + 1
+      document.getElementById("bien7").style.display = "inline-block"
+    }
+    function in7(){
+      document.getElementById("mal7").style.display = "inline-block"
+    }
+    function continuar7(){
+      document.getElementById("pregunta8").style.display = "inline-block"
+      document.getElementById("pregunta7").style.display = "none"
+      document.getElementById("bien7").style.display = "none"
+      document.getElementById("mal7").style.display = "none"
+    }
+    function buena8(){
+      document.getElementById("correcta8").style.display = "inline-block"
+      document.getElementById("incorrecta8").style.display = "none"
+    }
+    function mala8(){
+      document.getElementById("incorrecta8").style.display = "inline-block"
+      document.getElementById("correcta8").style.display = "none"
+    }
+    function c8(){
+      puntaje = puntaje + 1
+      document.getElementById("bien8").style.display = "inline-block"
+    }
+    function in8(){
+      document.getElementById("mal8").style.display = "inline-block"
+    }
+    function continuar8(){
+      document.getElementById("pregunta9").style.display = "inline-block"
+      document.getElementById("pregunta8").style.display = "none"
+      document.getElementById("bien8").style.display = "none"
+      document.getElementById("mal8").style.display = "none"
+    }
+    function mala9(){
+      document.getElementById("incorrecta9").style.display = "inline-block"
+      document.getElementById("correcta9").style.display = "none"
+    }
+    function buena9(){
+      document.getElementById("correcta9").style.display = "inline-block"
+      document.getElementById("incorrecta9").style.display = "none"
+    }
+    function c9(){
+      puntaje = puntaje + 1
+      document.getElementById("bien9").style.display = "inline-block"
+    }
+    function in9(){
+      document.getElementById("mal9").style.display = "inline-block"
+    }
+    function continuar9(){
+      document.getElementById("pregunta10").style.display = "inline-block"
+      document.getElementById("pregunta9").style.display = "none"
+      document.getElementById("bien9").style.display = "none"
+      document.getElementById("mal9").style.display = "none"
+    }
+    function mala10(){
+      document.getElementById("incorrecta10").style.display = "inline-block"
+      document.getElementById("correcta10").style.display = "none"
+    }
+    function buena10(){
+      document.getElementById("correcta10").style.display = "inline-block"
+      document.getElementById("incorrecta10").style.display = "none"
+    }
+    function c10(){
+      puntaje = puntaje + 1
+      document.getElementById("bien10").style.display = "inline-block"
+    }
+    function in10(){
+      document.getElementById("mal10").style.display = "inline-block"
+    }
+    function continuar10(){
+      document.getElementById("final").style.display = "inline-block"
+      document.getElementById("pregunta10").style.display = "none"
+      document.getElementById("bien10").style.display = "none"
+      document.getElementById("mal10").style.display = "none"
+      document.getElementById("titulo").style.display = "none"
+      document.getElementById("puntuacion").value = puntaje
+    }
+    function salir() {
+      document.getElementById("dejar").style.display = "inline-block"
+    }
+    function seguir() {
+      document.getElementById("dejar").style.display = "none"
+    }
+    </script>
+  </head>
+  <body>
+ <div id="titulo">
+   <div id="trivia"><h1>Trivia</h1></div>
+   <div id="boton"><button id="equis" onclick="salir()"><img src="imagenes/equis.png"></button></div>
+</div>
+<div id="dejar">
+  <div id="go">
+    <div id="text"><p>¿Estás seguro de que quieres salir? NO se guardará tu progreso</p></div>
+  <button id="ultimo"><a href="index.html">Salir</a></button>
+  <button onclick="seguir()" id="ultimo">Continuar</button>
+</div>
+</div>
+<div id=pregunta1>
+  <p>¿Qué son los métodos anticonceptivos?</p>
+  <div id="opciones">
+  <button onclick="buena1()" id="button">Sustancias, objetos o procedimientos que evitan que la mujer quede embarazada</button>
+  <button onclick="mala1()" id="button">Métodos que ayudan a que la pareja pueda tener un hijo</button>
+  <button onclick="mala1()" id="button">Sustancias que ayudan a perder la fertilidad de una mujer</button>
+  <button onclick="mala1()" id="button">Sustancias u objetos que sirven para abortar</button>
+</div>
+  <button id="correcta1" onclick="c1()">Comprobar</button>
+  <button id="incorrecta1" onclick="in1()">Comprobar</button>
+</div>
+<div id="bien1">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar1()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal1">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>Los métodos anticonceptivos son sustancias, objetos o procedimientos que evitan que la mujer quede embarazada</p></div>
+    <button onclick="continuar1()" id="conti">Continuar</button>
+  </div>
+  </div>
+<div id=pregunta2>
+  <p>¿Cuáles son los tipos de métodos anticonceptivos?</p>
+  <div id="opciones">
+  <button onclick="mala2()" id="button">Periódicos, naturales y doloroso</button>
+  <button onclick="mala2()" id="button">Destructivos, temporales y naturales</button>
+  <button onclick="buena2()" id="button">Temporales, definitivos y naturales</button>
+  <button onclick="mala2()" id="button">Infinitos, definitivos y temporales</button>
+</div>
+  <button id="correcta2" onclick="c2()">Comprobar</button>
+  <button id="incorrecta2" onclick="in2()">Comprobar</button>
+</div>
+<div id="bien2">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar2()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal2">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>Los tipos de métodos anticonceptivos son temporales, definitivos y naturales</p></div>
+    <button onclick="continuar2()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id=pregunta3>
+  <p>¿Cuáles son los métodos más recomendados?</p>
+  <div id="opciones">
+    <button onclick="mala3()" id="button">Naturales</button>
+  <button onclick="buena3()" id="button">Temporales</button>
+  <button onclick="mala3()" id="button">Definitivos</button>
+  <button onclick="mala3()" id="button">Todos son recomendados</button>
+</div>
+  <button id="correcta3" onclick="c3()">Comprobar</button>
+  <button id="incorrecta3" onclick="in3()">Comprobar</button>
+</div>
+<div id="bien3">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar3()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal3">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>Aunque depende de la situación, los temporales son los recomendables debido a que solo se usan durante el tiempo que se quiera, cuando se decide dejar de usarse la mujer puede quedar embarazada</p></div>
+    <button onclick="continuar3()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id=pregunta4>
+  <p>¿Cuáles son los métodos anticonceptivos hormonales?</p>
+  <div id="opciones">
+  <button onclick="mala4()" id="button">Espermicidas, DIU, implante y coito interrumpido</button>
+  <button onclick="mala4()" id="button">DIU, ritmo o calendario, condón y orales</button>
+  <button onclick="mala4()" id="button">Tomables, inyectables, condón y parches</button>
+  <button onclick="buena4()" id="button">Orales, inyectables, implante subdermico y parches</button>
+</div>
+  <button id="correcta4" onclick="c4()">Comprobar</button>
+  <button id="incorrecta4" onclick="in4()">Comprobar</button>
+</div>
+<div id="bien4">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar4()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal4">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>Los métodos anticonceptivos hormonales son: Orales, inyectables, implante subdermico y parches</p></div>
+    <button onclick="continuar4()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id=pregunta5>
+  <p>¿Cuáles son los métodos anticonceptivos naturales?</p>
+  <div id="opciones">
+    <button onclick="mala5()" id="button">DIU, temperatura basal, parches y moco cervical</button>
+    <button onclick="mala5()" id="button">Temperatura basal, ritmo o calendario, coito interrumpido y OTB</button>
+    <button onclick="mala5()" id="button">OTB, implante, orales y moco cervical</button>
+  <button onclick="buena5()" id="button">Ritmo o calendario, temperatura basal, moco cervical y coito interrumpido</button>
+</div>
+  <button id="correcta5" onclick="c5()">Comprobar</button>
+  <button id="incorrecta5" onclick="in5()">Comprobar</button>
+</div>
+<div id="bien5">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar5()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal5">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>Los métodos anticonceptivos naturales son: Ritmo o calendario, temperatura basal, moco cervical y coito interrumpido</p></div>
+    <button onclick="continuar5()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id=pregunta6>
+  <p>¿Cuál de estos NO es un método de barrera?</p>
+  <div id="opciones">
+  <button onclick="buena6()" id="button">Implante subdermico</button>
+  <button onclick="mala6()" id="button">Condón</button>
+  <button onclick="mala6()" id="button">Espermicidas</button>
+  <button onclick="mala6()" id="button">Dispositivo Intrauterino</button>
+</div>
+  <button id="correcta6" onclick="c6()">Comprobar</button>
+  <button id="incorrecta6" onclick="in6()">Comprobar</button>
+</div>
+<div id="bien6">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar6()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal6">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>Este es un método de barrera</p></div>
+    <button onclick="continuar6()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id=pregunta7>
+  <p>¿En qué método anticonceptivo se desarrolla la vasectomía?</p>
+  <div id="opciones">
+    <button onclick="mala7()" id="button">Hormonal</button>
+  <button onclick="buena7()" id="button">Definitivo</button>
+  <button onclick="mala7()" id="button">Natural</button>
+  <button onclick="mala7()" id="button">De barrera</button>
+</div>
+  <button id="correcta7" onclick="c7()">Comprobar</button>
+  <button id="incorrecta7" onclick="in7()">Comprobar</button>
+</div>
+<div id="bien7">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar7()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal7">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>Es definitivo, consiste en una un corte en los conductos deferentes para que los espermatozoides no puedan salir y de esta manera ya no puede embarazar a una mujer</p></div>
+    <button onclick="continuar7()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id=pregunta8>
+  <p>¿En qué consiste la OTB?</p>
+  <div id="opciones">
+    <button onclick="mala8()" id="button">Proceso que se realiza en el hombre extrayendo sus testículos</button>
+    <button onclick="mala8()" id="button">Proceso de extracción de la matriz</button>
+  <button onclick="buena8()" id="button">Proceso donde se ligan las trompas de Falopio en la mujer</button>
+  <button onclick="mala8()" id="button">Extracción del escroto</button>
+</div>
+  <button id="correcta8" onclick="c8()">Comprobar</button>
+  <button id="incorrecta8" onclick="in8()">Comprobar</button>
+</div>
+<div id="bien8">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar8()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal8">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>La OTB es un proceso definitivo donde se ligan las trompas de Falopio en la mujer</p></div>
+    <button onclick="continuar8()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id=pregunta9>
+  <p>¿Qué métodos anticonceptivos ayudan a prevenir las enfermedades de transmisión sexual (ETS)?</p>
+  <div id="opciones">
+  <button onclick="buena9()" id="button">Condón masculino y femenino</button>
+  <button onclick="mala9()" id="button">Implante subdermico</button>
+  <button onclick="mala9()" id="button">Vasectomía</button>
+  <button onclick="mala9()" id="button">DIU</button>
+</div>
+  <button id="correcta9" onclick="c9()">Comprobar</button>
+  <button id="incorrecta9" onclick="in9()">Comprobar</button>
+</div>
+<div id="bien9">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar9()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal9">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>Este método no previene al 100% en caso de una ETS</p></div>
+    <button onclick="continuar9()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id=pregunta10>
+  <p>¿Qué se podría prevenir si todas las personas tuvieran acceso a métodos anticonceptivos?</p>
+  <div id="opciones">
+  <button onclick="mala10()" id="button">Las ETS aumentarían en grandes cantidades</button>
+  <button onclick="mala10()" id="button">La mortalidad en bebés aumentaría</button>
+  <button onclick="buena10()" id="button">El número de abortos se podrían disminuir</button>
+  <button onclick="mala10()" id="button">La fertilidad se vería afectada</button>
+</div>
+  <button id="correcta10" onclick="c10()">Comprobar</button>
+  <button id="incorrecta10" onclick="in10()">Comprobar</button>
+</div>
+<div id="bien10">
+  <div id="respuesta">
+    <img src="imagenes/palomita.png">
+    <div id="frase"><p><strong>La respuesta es correcta</strong></p></div>
+    <button onclick="continuar10()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="mal10">
+  <div id="respuesta">
+    <img src="imagenes/mal.png">
+    <div id="frase"><p><strong>La respuesta es incorrecta</strong></p></div>
+    <div id="descripción"><p>Esta afirmación es falsa</p></div>
+    <button onclick="continuar10()" id="conti">Continuar</button>
+  </div>
+</div>
+<div id="final">
+  <div>
+<h1>Trivia</h1>
+<p>¡Juego terminado!</p></br>
+<img src="imagenes/trivia.png">
+<p>Tu puntuación fue de:</p>
+  <input id="puntuacion" readonly></input>
+</div>
+<button id="ultimo"><a href="index.html">Volver a inicio</a></button>
+</div>
+  </body>
+</html>

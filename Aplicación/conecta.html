@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Conecta Piezas</title>
+    <style>
+    * {margin: auto; text-align: center;}
+    h1 {font-size: 3rem}
+    p {font-size: 2rem; margin: 1rem}
+    body {background: white}
+    #titulo {background: #D0E6A5; display: flex; justify-content: space-around;}
+    #boton {width: 10%;}
+    #conecta {width: 75%; margin: 3rem}
+    #equis {background: #D0E6A5; border: #D0E6A5;}
+    #equis img {width: 1rem}
+    #final {display: none; background: #D0E6A5; height: 100%; width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #puntuacion {background: #FA897B; border: #FA897B; font-size: 2rem; width: 100%}
+    #dejar {background: rgba(0,0,0,0.4); width: 100%; height: 100%; position: absolute; top: 0; display: none; left: 0;}
+    #go {background: black; color: white; width: 90%; height: 40%; margin-top: 10rem; border-radius: 20px;}
+    a {text-decoration: none; color: white;}
+    #ultimo {background: #86E3CE; border:#86E3CE; color: white; border-radius: 20px; font-size: 2rem; margin: 0.5rem}
+    #final img {width: 80%; height: 80%}
+    </style>
+    <script>
+    function salir() {
+      document.getElementById("dejar").style.display = "inline-block"
+    }
+    function seguir() {
+      document.getElementById("dejar").style.display = "none"
+    }
+    </script>
+  </head>
+  <body>
+    <div id="titulo">
+      <div id="conecta"><h1>Conecta</h1></div>
+      <div id="boton"><button id="equis" onclick="salir()"><img src="imagenes/equis.png"></button></div>
+   </div>
+   <div id="dejar">
+     <div id="go">
+       <div id="text"><p>¿Estás seguro de que quieres salir? NO se guardará tu progreso</p></div>
+     <button id="ultimo"><a href="index.html">Salir</a></button>
+     <button onclick="seguir()" id="ultimo">Continuar</button>
+   </div>
+   </div>
+   <div id="final">
+     <div>
+   <h1>Trivia</h1>
+   <p>¡Juego terminado!</p></br>
+   <img src="imagenes/trivia.png">
+   <p>Tu puntuación fue de:</p>
+     <input id="puntuacion" readonly></input>
+   </div>
+   <button id="ultimo"><a href="index.html">Volver a inicio</a></button>
+   </div>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ajustes</title>
+    <style>
+    * {margin: auto;}
+    #titulo {background: #86E3CE;}
+    h1 {color: white; font-size: 3rem; margin-left: 3rem;}
+    #menu {background: #86E3CE; width: 100%; display: flex; justify-content: space-around; bottom: inherit; position:absolute; bottom: 0}
+    #menu img {width: 100px; height: 100px}
+    button {background: #86E3CE; border: #86E3CE;}
+    #disable {background: #CCABD8; border: #CCABD8;}
+    #configuracion {background: #CCABD8; width: 90%; height:70%; text-align: center; border-radius: 20px; margin-top: 1rem; position:absolute; margin-left: 1rem}
+    #texto {margin: 5rem}
+    body {background: white;}
+    #ajuste {font-size: 2rem; margin-top: 1rem;}
+    select {background: #86E3CE; font-size: 2rem;}
+    .switch {position: relative; display: inline-block; width: 60px; height: 34px;}
+.switch input {opacity: 0; width: 0; height: 0;}
+.slider {position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #FA897B; -webkit-transition: .4s; transition: .4s;}
+.slider:before {position: absolute; content: "";height: 26px;width: 26px;left: 4px;bottom: 4px;background-color: white;-webkit-transition: .4s;transition: .4s;}
+input:checked + .slider {
+  background-color: #86E3CE;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #86E3CE;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+    </style>
+    <script>
+    </script>
+  </head>
+  <body>
+ <div id="titulo">
+   <h1>Ajustes</h1>
+</div>
+<div id=configuracion>
+    <div id="ajuste">
+        <label>Sonido</label>
+    <label class="switch">
+  <input type="checkbox">
+  <span class="slider round"></span>
+</label>
+    </div>
+    <div id="ajuste">
+        <label>Música</label>
+    <label class="switch">
+  <input type="checkbox">
+  <span class="slider round"></span>
+</label>
+    </div>
+    <div id="ajuste">
+        <label>Notificaciones</label>
+    <label class="switch">
+  <input type="checkbox">
+  <span class="slider round"></span>
+</label>
+    </div>
+<div id="ajuste">
+    <label>Idioma</label>
+<select>
+  <option>Español</option>
+  <option>English</option>
+</select>
+</div>
+</div>
+<div id=menu>
+  <button><a href="articulos.html"><img src="imagenes/libro-abierto.png"></a></button>
+  <button><a href="index.html"><img src="imagenes/casa.png"></a></button>
+  <button disabled="disabled" id="disable"><img src="imagenes/configuracion.png"></button>
+</div>
+  </body>
+</html>
